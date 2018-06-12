@@ -1,73 +1,180 @@
-﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" ng-app>
+<!DOCTYPE html>
+<html>
 <head>
-    <!--<meta name="viewport" content="width=1024" />-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="Scripts/angular.js"></script>
-    <link href="CSS/Style.css" rel="stylesheet" />
+* {
+  box-sizing: border-box;
+}
 
-    <link href="CSS/bootstrap.css" rel="stylesheet" />
-    <script src="Scripts/JavaScript.js"></script>
+/* style the container */
+.container {
+  position: relative;
+  border-radius: 5px;
+  background-color: #fa5f5f;
+  color : white;
+  padding: 20px 0 30px 0;
+} 
 
+/* style inputs and link buttons */
+input,
+.btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  margin: 5px 0;
+  opacity: 0.85;
+  display: inline-block;
+  font-size: 17px;
+  line-height: 20px;
+  text-decoration: none; /* remove underline from anchors */
+}
+
+input:hover,
+.btn:hover {
+  opacity: 1;
+}
+
+/* add appropriate colors to fb, twitter and google buttons */
+.fb {
+  background-color: #3B5998;
+  color: white;
+}
+
+.twitter {
+  background-color: #55ACEE;
+  color: white;
+}
+
+.google {
+  background-color: #dd4b39;
+  color: white;
+}
+
+/* style the submit button */
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+/* Two-column layout */
+.col {
+  float: left;
+  width: 50%;
+  margin: auto;
+  padding: 0 50px;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* vertical line */
+.vl {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  border: 2px solid #ddd;
+  height: 175px;
+}
+
+/* text inside the vertical line */
+.vl-innertext {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  padding: 8px 10px;
+}
+
+/* hide some text on medium and large screens */
+.hide-md-lg {
+  display: none;
+}
+
+/* bottom container */
+.bottom-container {
+  text-align: center;
+  background-color: #666;
+  border-radius: 0px 0px 4px 4px;
+}
+
+
+
+/* center */
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.wrap-content{
+  width: 500px;
+  border-radius: 10px;
+  overflow: hidden;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#textExample
+{
+    border: none;
+    background: transparent;
+    color:white;
+    text-align:center;
+}
+
+
+
+/* Responsive layout - when the screen is less than 650px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 650px) {
+  .col {
+    width: 100%;
+    margin-top: 0;
+  }
+  /* hide the vertical line */
+  .vl {
+    display: none;
+  }
+  /* show the hidden text on small screens */
+  .hide-md-lg {
+    display: block;
+    text-align: center;
+  }
+}
+</style>
+
+  <script src="Scripts/JavaScript.js"></script>
+<script src="https://js.cx/libs/animate.js"></script>
     <script>
         window.setInterval(function () {
             animateText(textExample);
-        }, 5000);
+        }, 7000);
     </script>
-    <script>
-        $(window).resize(function () {
-            var mobileWidth = (window.innerWidth > 0) ?
-                                window.innerWidth :
-                                screen.width;
-            var viewport = (mobileWidth > 360) ?
-                            'width=device-width, initial-scale=1.0' :
-                            'width=1200';
-            $("meta[name=viewport]").attr('content', viewport);
-        }).resize();
-    </script>
-
-    <script>
-        $(document).ready(function () {
-            alert('hello world');
-        });
-    </script>
-
-
-    <script src="https://js.cx/libs/animate.js"></script>
-
-    <!-- Font awesome CSS -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous" />
-
-
-
-    <!-- Latest compiled and minified CSS -->
-    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />-->
-
-    <!-- Optional theme -->
-    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous" />-->
-
-    <!-- Latest compiled and minified JavaScript -->
-    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>-->
-
 </head>
-<body class="mainbody" onload="init();">
-    <div class="jumbotron text-center">
-
-
-        <div id="maindiv" class="content-box">
-            <div class="row">
-
-                <div class="col-md-4">
-                    <div class="firstdiv">
-                    </div>
-                </div>
-
-                <div id="seconddiv" class="col-md-4">
-
-                    <div class="row">
-                        <div class="col">
-                            <marquee direction="left" scrolldelay="25" behavior="scroll 7s linear 0s infinite" >
+<body>
+<div class="container">
+ <div class="wrap-content center">
+  <form action="/action_page.php">
+ <div class="row">
+<marquee direction="left" scrolldelay="25" behavior="scroll 7s linear 0s infinite" >
                 <img src="Images/b.png" width="20" height="20"/>
                 <img src="Images/blue.png" width="20" height="20"  />
                 <img src="Images/colorfull.png" width="20" height="20"  />
@@ -89,61 +196,30 @@
                 <img src="Images/pink.png" width="20" height="20"  />
                 <img src="Images/b.png" width="20" height="20"/>
                 </marquee>
-                        </div>
-                    </div>
+</div>
+    
+<div class="row">
+        <h2 style="text-align:center">Wish You Many Many Happy Returns Of The Day  </h2>
 
-                    <div class="row">
+	<img id ="imgCake" src="Images/cake.png" class="img-responsive center" width="150"    hight="200"   />
 
-                        <div class="row">
-
-                            <div class="col-md-12">
-                                <h1>Happy Birth Day To You  <i class="fas fa-birthday-cake"></i></h1>
-                                <!--<i class="fas fa-bomb"> </i>-->
-
-
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-3">
-                            </div>
-                            <div class="col-md-6 mx-auto d-block">
-                                <img src="Images/cake.png" class="img-responsive" width="200" height="200" />
-                            </div>
-                            <div class="col-md-3">
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-1">
-                            </div>
-                            <div class="col-md-10">
-                                <textarea id="textExample" class="txtexample" rows="5" cols="60">May this birthday bring you lots of joy,happiness and success. 
+<textarea id="textExample" class="center" rows="6" cols="38">May this birthday bring you 
+lots of joy,happiness and success. 
 Wishing you a wonderful birthday. 
-Wishing you a year of amazing moments and reasons to smile.
+Wishing you a year of amazing moments 
+and reasons to smile.
                 </textarea>
-                            </div>
-                            <div class="col-md-1">
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-2">
-                            </div>
-                            <div class="col-md-4">
-                                <img src="Images/tigger-birthday-clipart-1.jpg" class="img-responsive" width="100" height="100" />
-                            </div>
-                            <div class="col-md-4">
-                                <img src="Images/Cake-Gif-12.gif" class="img-responsive" width="100" height="100" />
-                            </div>
-                            <div class="col-md-2">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col">
-                            <marquee direction="left" scrolldelay="25" behavior="scroll 7s linear 0s infinite" >
+</div> 
+<div class="row" >
+  <div class="col">
+      <img src="Images/tigger-birthday-clipart-1.jpg" class="img-responsive" width="100" height="100" />
+  </div>
+  <div class="col">
+      <img src="Images/Cake-Gif-12.gif" class="img-responsive" width="100" height="100" />
+  </div>
+</div>
+ <div class="row">
+<marquee direction="right" scrolldelay="25" behavior="scroll 7s linear 0s infinite" >
                 <img src="Images/b.png" width="20" height="20"/>
                 <img src="Images/blue.png" width="20" height="20"  />
                 <img src="Images/colorfull.png" width="20" height="20"  />
@@ -165,16 +241,10 @@ Wishing you a year of amazing moments and reasons to smile.
                 <img src="Images/pink.png" width="20" height="20"  />
                 <img src="Images/b.png" width="20" height="20"/>
                 </marquee>
-                        </div>
-                    </div>
-                </div>
+</div>
 
-                <div class="col-md-4">
-                    <div class="thirddiv">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+  </form>
+</div>
+</div>
 </body>
 </html>
